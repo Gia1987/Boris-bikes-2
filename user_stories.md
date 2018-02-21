@@ -12,4 +12,4 @@ Objects  | Messages
 ------------- | -------------
 Person/User  | use_bike
 Bike  | is_working?
-Docking Station  | Release a bike
+Docking Station  | Release a bike, dock
