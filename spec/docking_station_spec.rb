@@ -1,4 +1,5 @@
 require './lib/docking_station'
+DEFAULT_CAPACITY = 20
 describe DockingStation do
     it "responde to release_bike" do
       expect(subject).to respond_to (:release_bike)
@@ -35,7 +36,9 @@ describe DockingStation do
   end
 
   it 'raises error when trying to dock bike in a full station' do
-    20.times{subject.dock(Bike.new)}
+    DockingStation::DEFAULT_CAPACITY.times do
+      subject.dock Bike.new
+    end
     expect { subject.dock(Bike.new) }.to raise_error "Sorry, station is full"
   end
 end
