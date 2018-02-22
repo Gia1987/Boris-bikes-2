@@ -4,6 +4,7 @@ class DockingStation
   attr_reader :bike
 
     def dock(bike)
+      fail "Sorry, station is full" if !(self.bike == nil)
       @bike = bike
     end
 
@@ -11,4 +12,7 @@ class DockingStation
     fail 'No bikes available' unless @bike
     @bike
   end
+
 end
+
+#docking_station.dock
