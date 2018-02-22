@@ -21,7 +21,7 @@ describe DockingStation do
 
 # checks DockingStation.dock method that takes 1 argument
   it { should respond_to(:dock).with(1).argument }
-  it { is_expected.to respond_to(:bike) }
+  it { is_expected.to respond_to(:bikes) }
   describe '#release_bike' do
     # it ' release bikes' do
     it 'raises an error when there are no bikes available' do
@@ -35,8 +35,7 @@ describe DockingStation do
   end
 
   it 'raises error when trying to dock bike in a full station' do
-    bike_1 = Bike.new
-    subject.dock(bike_1)
+    20.times{subject.dock(Bike.new)}
     expect { subject.dock(Bike.new) }.to raise_error "Sorry, station is full"
   end
 end
