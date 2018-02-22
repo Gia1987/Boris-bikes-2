@@ -16,7 +16,10 @@ class DockingStation
 
   def release_bike
     fail 'No bikes available' if empty?
-    @bikes.pop
+    fail "Sorry, this bike is broken" if @bikes[-1].is_working? == false
+    bike = @bikes.delete_at(-1)
+    bike
+
   end
 
   private
